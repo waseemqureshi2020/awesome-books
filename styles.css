@@ -47,6 +47,7 @@
   cursor: pointer;
   margin: 10px 0;
 }
+
 .book:nth-child(odd) {
   background-color: rgb(173, 170, 170);
 }
