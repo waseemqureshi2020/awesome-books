@@ -35,7 +35,10 @@ clone the project then run: npm install
 
 👤 **Author2**
 
-- GitHub: [@waseem](https://github.com/waseemqureshi2020)
+- GitHub: [@waseemqureshi2020](https://github.com/waseemqureshi2020)
+- Twitter: [@WASEEMQ2020](https://twitter.com/WASEEMQ2020)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/waseem-qureshi-2231741a2/)
+
 
 ## 🤝 Contributing
 
