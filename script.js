@@ -27,15 +27,15 @@ noBooks.onclick = (() => {
   return true;
 });
 
-// addNewBook.onclick = (() => {
-//   listBooksSection.classList.remove('books');
-//   listBooksSection.classList.add('display-none');
-//   contactSection.classList.remove('contact-section');
-//   contactSection.classList.add('display-none');
-//   addBookSection.classList.remove('display-none');
-//   addBookSection.classList.add('add-book');
-//   pageTitle.innerText = 'Add a new book';
-// });
+addNewBook.onclick = (() => {
+  listBooksSection.classList.remove('books');
+  listBooksSection.classList.add('display-none');
+  contactSection.classList.remove('contact-section');
+  contactSection.classList.add('display-none');
+  addBookSection.classList.remove('display-none');
+  addBookSection.classList.add('add-book');
+  pageTitle.innerText = 'Add a new book';
+});
 
 contact.onclick = (() => {
   listBooksSection.classList.remove('books');
