@@ -47,16 +47,14 @@ contact.onclick = (() => {
   pageTitle.innerText = 'Contact information';
 });
 
-// eslint-disable-next-line no-unused-vars
+
 function displayCounterTime() {
   const x = new Date();
   date.innerHTML = x;
-  // eslint-disable-next-line no-use-before-define
   displayCounter();
 }
 function displayCounter() {
   const refresh = 1000;
-  // eslint-disable-next-line no-implied-eval
   setTimeout('displayCounterTime()', refresh);
 }
 
@@ -149,7 +147,6 @@ addBookButton.onclick = (() => {
   checkForBooks();
 });
 
-// eslint-disable-next-line no-unused-vars
 function removeBookButton(index) {
   if (index) {
     bookIndex = index;
