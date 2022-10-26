@@ -1,3 +1,6 @@
+/* eslint-disable no-implied-eval */
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-unused-vars */
 const booksListSection = document.querySelector('.books-list');
 const inputTitle = document.querySelector('.input-title');
 const inputAuthor = document.querySelector('.input-author');
@@ -46,7 +49,6 @@ contact.onclick = (() => {
   addBookSection.classList.add('display-none');
   pageTitle.innerText = 'Contact information';
 });
-
 
 function displayCounterTime() {
   const x = new Date();
