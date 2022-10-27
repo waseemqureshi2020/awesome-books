@@ -19,17 +19,15 @@
 .book {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  padding: 5px;
+  padding: 5px 20px;
   justify-content: space-between;
   align-items: baseline;
   background-color: #fff;
-  border-bottom: 1px solid black;
+  border: 1px solid black;
 }
 
 .title-and-author {
   display: flex;
-  flex-direction: column;
   align-items: center;
   font-size: 20px;
 }
@@ -44,14 +42,27 @@
 
 .remove-book-button,
 .add-book-button {
-  padding: 5px;
+  padding: 5px 15px;
   box-shadow: 2px 2px #888;
   cursor: pointer;
   margin: 10px 0;
 }
 
+.book:nth-child(odd) {
+  background-color: rgb(173, 170, 170);
+}
+
 .add-book-button {
+  align-self: flex-end;
   cursor: pointer;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-self: center;
 }
 
 header {

@@ -2,7 +2,6 @@ const booksListSection = document.querySelector('.books-list');
 const inputTitle = document.querySelector('.input-title');
 const inputAuthor = document.querySelector('.input-author');
 const addBookButton = document.querySelector('.add-book-button');
-const date = document.querySelector('.date');
 const bookList = document.querySelector('.list');
 const addNewBook = document.querySelector('.add-new');
 const contact = document.querySelector('.contact');
@@ -22,20 +21,15 @@ bookList.onclick = (() => {
   pageTitle.innerText = 'All awesome books';
 });
 
-noBooks.onclick = (() => {
-  addNewBook.click();
-  return true;
+addNewBook.onclick = (() => {
+  listBooksSection.classList.remove('books');
+  listBooksSection.classList.add('display-none');
+  contactSection.classList.remove('contact-section');
+  contactSection.classList.add('display-none');
+  addBookSection.classList.remove('display-none');
+  addBookSection.classList.add('add-book');
+  pageTitle.innerText = 'Add a new book';
 });
-
-// addNewBook.onclick = (() => {
-//   listBooksSection.classList.remove('books');
-//   listBooksSection.classList.add('display-none');
-//   contactSection.classList.remove('contact-section');
-//   contactSection.classList.add('display-none');
-//   addBookSection.classList.remove('display-none');
-//   addBookSection.classList.add('add-book');
-//   pageTitle.innerText = 'Add a new book';
-// });
 
 contact.onclick = (() => {
   listBooksSection.classList.remove('books');
@@ -46,19 +40,6 @@ contact.onclick = (() => {
   addBookSection.classList.add('display-none');
   pageTitle.innerText = 'Contact information';
 });
-
-// eslint-disable-next-line no-unused-vars
-function displayCounterTime() {
-  const x = new Date();
-  date.innerHTML = x;
-  // eslint-disable-next-line no-use-before-define
-  displayCounter();
-}
-function displayCounter() {
-  const refresh = 1000;
-  // eslint-disable-next-line no-implied-eval
-  setTimeout('displayCounterTime()', refresh);
-}
 
 let books = Array.from(JSON.parse(localStorage.getItem('books') || '[]'));
 
@@ -74,7 +55,7 @@ function createBooksList(books) {
             by
             <p class="book-author">${book.author}</p>
           </div>
-          <button class="remove-book-button" onclick="removeBookButton(${index})">Remove</button>
+          <button id="${index}" class="remove-book-button">Remove</button>
         </li>
       `;
     });
@@ -149,7 +130,6 @@ addBookButton.onclick = (() => {
   checkForBooks();
 });
 
-// eslint-disable-next-line no-unused-vars
 function removeBookButton(index) {
   if (index) {
     bookIndex = index;
@@ -160,5 +140,9 @@ function removeBookButton(index) {
   window.location.reload();
   checkForBooks();
 }
+
+booksListSection.addEventListener('click', (e) => {
+  removeBookButton(e.target.id);
+});
 
 checkForBooks();
