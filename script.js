@@ -1,11 +1,7 @@
-/* eslint-disable no-implied-eval */
-/* eslint-disable no-use-before-define */
-/* eslint-disable no-unused-vars */
 const booksListSection = document.querySelector('.books-list');
 const inputTitle = document.querySelector('.input-title');
 const inputAuthor = document.querySelector('.input-author');
 const addBookButton = document.querySelector('.add-book-button');
-const date = document.querySelector('.date');
 const bookList = document.querySelector('.list');
 const addNewBook = document.querySelector('.add-new');
 const contact = document.querySelector('.contact');
@@ -23,11 +19,6 @@ bookList.onclick = (() => {
   addBookSection.classList.remove('add-book');
   addBookSection.classList.add('display-none');
   pageTitle.innerText = 'All awesome books';
-});
-
-noBooks.onclick = (() => {
-  addNewBook.click();
-  return true;
 });
 
 addNewBook.onclick = (() => {
@@ -50,16 +41,6 @@ contact.onclick = (() => {
   pageTitle.innerText = 'Contact information';
 });
 
-function displayCounterTime() {
-  const x = new Date();
-  date.innerHTML = x;
-  displayCounter();
-}
-function displayCounter() {
-  const refresh = 1000;
-  setTimeout('displayCounterTime()', refresh);
-}
-
 let books = Array.from(JSON.parse(localStorage.getItem('books') || '[]'));
 
 let booksList = '';
@@ -74,7 +55,7 @@ function createBooksList(books) {
             by
             <p class="book-author">${book.author}</p>
           </div>
-          <button class="remove-book-button" onclick="removeBookButton(${index})">Remove</button>
+          <button id="${index}" class="remove-book-button">Remove</button>
         </li>
       `;
     });
@@ -159,5 +140,9 @@ function removeBookButton(index) {
   window.location.reload();
   checkForBooks();
 }
+
+booksListSection.addEventListener('click', (e) => {
+  removeBookButton(e.target.id);
+});
 
 checkForBooks();
