@@ -55,7 +55,7 @@ function createBooksList(books) {
             by
             <p class="book-author">${book.author}</p>
           </div>
-          <button id="${index}" class="remove-book-button">Remove</button>
+          <button name="remove-button" id="${index}" class="remove-book-button">Remove</button>
         </li>
       `;
     });
@@ -142,7 +142,9 @@ function removeBookButton(index) {
 }
 
 booksListSection.addEventListener('click', (e) => {
-  removeBookButton(e.target.id);
+  if (e.target.name === 'remove-button') {
+    removeBookButton(e.target.id);
+  }
 });
 
 checkForBooks();
